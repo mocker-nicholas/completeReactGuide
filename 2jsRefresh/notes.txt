@@ -1,0 +1,9 @@
+Important array methods
+1. map()
+2. find()
+3. findIndex()
+4. filter()
+5. reduce()
+6. concat()
+7. slice()
+8. splice()
