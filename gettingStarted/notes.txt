@@ -1,0 +1,36 @@
+1. React enables us to make single page web applications without
+    doing much of the heavily lifting we would otherwise have to do if 
+    we were using vanilla JS for all of the DOM manipulation. 
+2. The idea behind single page apps is to make it look like you are switching pages to the user, 
+    but you are really just manipulating the DOM with react and JS. 
+3. There are 3 sections to this course
+    1. Foundations, no matter what you will use these if you are making anything in React
+    2. More specific concepts you will need for production. They wont always be needed, but
+        most of the time will be needed. 
+    3. Summaries and refreshers on the concepts covered. 
+4. Course Detail
+    a. Building Compenents with React
+    b. Working with React Events, Props, and State
+    c. Styling Components
+    d. An introduction into React Hooks
+    e. Working with "Side Effects", "refs" and how they interact with hooks. 
+    f. app wide state management with Reacts context API and Redux
+    g. HTTP requests from forms with custom Hooks
+    h. Routing, deployment, NextJS
+5. Refreshers
+    a. JS refresh
+    b. React Summary
+    c. Some bigger projects
+    d. Challenges and exercises throughout the course
+6. Two Ways to take the course:
+    a. Go through linearly
+    b. Skip Around a bit for the "summary approach"
+7. How to get the most out of this course
+    a. Watch every video
+    b. Speed up the videos if it is too slow
+    c. Try stuff on your own. 
+    d. USE THE DISCORD!
+8. Setting up the environment
+    a. 
+
+
