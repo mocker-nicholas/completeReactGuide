@@ -1,0 +1,40 @@
+1. index.js is your main DOM file. It will always run first when you hit your server.
+    It is the root of your project. 
+2. In you public file, you have one index.html file with a div with an id of root,
+    this is where your index.js file renders all of it's content
+3. You will write functions for each component you want to create. 
+    - These functions return special HTML code called JSX. JSX is basically HTML and JS combined.
+4. The Component function you create is the desired target state. 
+    - Normally we would have to give js step by step instructions to render that state
+    - That process is called imperative code. 
+5. You should have different files for each component!
+    - This pattern results in a component tree, with the App.js Component at the top of the tree
+6. Custom components should have capital letters upon import. 
+    - react sees lowercase JSX as native HTML, and Uppercase <></> as custom components
+    - JSX functions only can return one 'parent' element. You cant return elements side by side.
+7. To get access to css, you have to import the css file into your compenent file
+    - you then apply classes with className rather than "class"
+
+//////////////////////////////////////////////////////////
+////////////////////// Passing Props /////////////////////
+//////////////////////////////////////////////////////////
+1. To render content dynamically within a component function, you will pass "props"
+    as an arguement to that function. Props always come from the parent component. 
+2. "Props" is typically the name assigned to the object of attributes passed from 
+    the parent JSX element to the child JSX element.
+3. Split your components up when they start to suck. There is no hard rule for how to
+    split components, but they will get bigger and bigger as you add functionality.
+
+//////////////////////////////////////////////////////////
+////////////////////// Composition  //////////////////////
+//////////////////////////////////////////////////////////
+1. The composition of a react app is all about using components to reduce duplication. 
+2. For example, rather than putting a container with generic styles around ever component
+    that is returned, we could make a container component and use that. 
+3. To make a wrapper class like that, you have to pass props into the wrapper compenent,
+    and then render {props.children} where you want your content to go. 
+    - Youll have to pass your classnames you want to add to that wrapper into the returned
+        content as well. 
+        - const classes = "card " + props.className;
+4. Whenever you combining compenents you are using composition. The props.children is
+    the most important part of this. You need it to create any wrapper classes.
