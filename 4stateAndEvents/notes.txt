@@ -1,0 +1,70 @@
+1. To add an event listener on a JSX element you put it on the html itself.
+    - <button onClick={clickHandler}></button>
+    - ending with "handler" is a common convention for even handeling function
+        names.
+2. When react is rendered, it adds your compenents to the browser callstack and 
+    generates all the compenents.
+    - This works, but if you have event triggers on elements, you can trigger the 
+        the events, but the content never renders again because the callstack has been
+        completed.
+    - This led to need for some way to tell react that something in the content is 
+        triggering a change. Enter, state. 
+
+//////////////////////////////////////////////
+//////////////////// State ///////////////////
+//////////////////////////////////////////////
+1. State is not react specific, but it is very important to react.
+2. import React, { useState } from "react";
+3. useState(); must be called directly in compenent functions. It cannot be nested.
+    - useState(initialValue, updateFunction)
+    - useState takes in the initial value, and the name of the function that is returned.
+    - it returns an array where the first value is a pointer at the original value, and the second
+        is a function that will update the value.
+            - You utilize the second value returned in your eventHandler to update the value
+                you passed in to useState();
+            -   const [title, setTitle] = useState(props.title);
+
+                const clickHandler = () => {
+                    setTitle("Updated"); <- executes the compenent building function again
+                    console.log("Clicked");
+                };
+            - the first value is now what you pass in your original JSX. We have added state When
+                it is rendered, so now it is a variable we can access.
+                -<changeme>{title}</changeme> rather than <changeme>{props.title}</changeme>
+4. Each compenent has its own state. We use ExpenseItem 4 times, but one click only changes the state
+    of the component clicked.
+5. Expense form js notes
+    - you can keep track of multiple useState()s at once for many inputs, or you could have one useState
+        that accepts and object, and sets the starting state for all of the inputs. 
+    - However, if you do this you have to update the values for the object you passed in
+        every time you want to update one value.
+    - This results in depending on the previous state for the values int he current state
+    - When this is the case, you want to pass a callback into your returned state function that
+        returns the new state values.
+6. Two way binding, 
+    - we can listen to inputs and use the value input to bind them to the enteredValue
+    - on submit event, we can use the submitHandler to set the enteredValue back it its original
+        state on the input's value parameter, this essentially clears the form. 
+
+//////////////////////////////////////////////
+//////////////////// Child to Parent ///////////////////
+//////////////////////////////////////////////
+1. We can add event properties on to parent components that listen for events on child components
+2. You cant skip components in between while doing this. Sort of like bubbling
+ - add a function to the parent component
+ -- make the function a property on the child custom component
+ --- call the function on the child component and pass it the data the parent expects
+3. Lifting state up
+ - To pass data to siblings, you have to use the closest parent compenent of both children to pass
+    the data through.
+
+Summary
+ 1. To add state to an item, you use useState pass in a currentValue
+  - then, you set useState("currentValue") equal to an array with the Two
+    items it returns, the currentValue, and the updatedValueFunction.
+  - You then listen on an element for a change, when the change occurs you
+    call the updatedValueFunction to set the new state with the new value.
+  - You can then output that new value into the ui, or pass that new value up to its
+    parent component using a function you set as a property on the parent.
+
+

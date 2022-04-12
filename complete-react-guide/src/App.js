@@ -1,7 +1,8 @@
 import React from "react";
-import Expenses from "./components/Expenses.js";
+import Expenses from "./components/Expenses/Expenses.js";
+import NewExpense from "./components/NewExpense/NewExpense.js";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -23,6 +24,11 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("in app js");
+    console.log(expense);
+  };
   // You used to use createlement. name of element, element attributes, element children
   // You had to import React from 'react' in all of your files to use this syntax
   // return React.createElement(
@@ -34,10 +40,10 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;

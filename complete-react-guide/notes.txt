@@ -38,3 +38,9 @@
         - const classes = "card " + props.className;
 4. Whenever you combining compenents you are using composition. The props.children is
     the most important part of this. You need it to create any wrapper classes.
+
+//////////////////////////////////////////////////////////
+////////////////////// Cleaning Things Up  //////////////////////
+//////////////////////////////////////////////////////////
+1. You can nest your compenents within folders. They dont all have to be in 'src'
+2. Your compenent thing can be arrow functions
