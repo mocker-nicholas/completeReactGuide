@@ -140,4 +140,6 @@ const each = numbers.forEach((num) => {
   console.log(num * 2);
 });
 
+// Others to know
+
 console.log(each);

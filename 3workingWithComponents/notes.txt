@@ -1,0 +1,18 @@
+1. React is a component based framework based on JSX
+2. Components are re-usable blocks of HTML, CSS, and JS code. 
+    a. This gets into the core rule of code
+        - DRY DONT REPEAT YOURSELF
+3. React uses a declarative approach to build components
+    a. Declarative means you define the desired END state of the DOM, and React
+        will figure out which elements on the page needs to be updated. You DONT
+        have to write step by step instructions like you would with JS. 
+
+/////////////////////////////////////////////////////////
+///////////// Creating a new react project //////////////
+/////////////////////////////////////////////////////////
+1. to create a new project:
+    - npx create-react-app <project-name>
+2. We will start with a more basic react app from the course materials
+    - Download the lecture zip file and run npm install for the dependencies
+    - That doesnt work anymore I guess. So create react app it is. 
+3. For more Notes, go into complete-react-guide
