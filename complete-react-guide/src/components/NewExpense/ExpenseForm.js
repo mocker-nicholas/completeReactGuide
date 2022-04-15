@@ -5,49 +5,18 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  //   const [userInput, setUserInput] = useState({
-  //     enteredTitle: "",
-  //     enteredAmount: "",
-  //     enteredDate: "",
-  //   });
 
   const titleChangeHandler = (e) => {
     setEnteredTitle(e.target.value);
-    // setUserInput({
-    //   // spread in the rest of the inputs
-    //   ...userInput,
-    //   // override the one we are targeting
-    //   enteredTitle: e.target.value,
-    // });
-    //     setUserInput((prevState) => {
-    //       return {
-    //         // spread in previous state
-    //         ...prevState,
-    //         // overwrite value
-    //         enteredTitle: e.target.value,
-    //       };
-    //     });
   };
 
   // amounts are converted to strings when you read the value
   const amountChangeHandler = (e) => {
     setEnteredAmount(e.target.value);
-    // setUserInput((prevState) => {
-    //   return {
-    //     ...prevState,
-    //     enteredAmount: e.target.value,
-    //   };
-    // });
   };
 
   const dateChangeHandler = (e) => {
     setEnteredDate(e.target.value);
-    // setUserInput((prevState) => {
-    //   return {
-    //     ...prevState,
-    //     enteredDate: e.target.value,
-    //   };
-    // });
   };
 
   const submitHandler = (e) => {
@@ -96,6 +65,10 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        {/* adding type button prevents form submit */}
+        <button type="button" onClick={props.onCancelEdit}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
