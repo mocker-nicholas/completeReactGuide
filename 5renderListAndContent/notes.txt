@@ -1,0 +1,14 @@
+1. You can conditionally render content within JSX blocks of code. 
+ - return (
+     <div>
+        {if(condition){
+            <SomeComponent/>
+        } else {
+            <OtherComponent>
+        }}
+    </div>
+ )
+
+ 2. if you are rendering and array of items, add a "Key" attribute to the
+    custom component you are rendering. This helps react determine what you
+    already have rendered, and will now only update the new item in the array. 
