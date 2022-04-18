@@ -117,7 +117,17 @@ a. You can add dynamic styles on components with inline styles or Classes
 b. You can also use the "styled-components" npm package. 
     - import styled from "styled-components"
     - const Button = styled.whateverelement`stylesgohere`
-
+c. In the styles you pass into the backticks, you can use a prop on the component being styled, 
+    and then use that prop to set styles dynamically based on its value.
+d. CSS Modules
+    - import styles from "./Button.module.css";
+    - Name your css files "Component.module.css"
+    - you now have access to your classes as properties on "styles"
+        - <Component className={styles.className}/>
+        - <Component className={styles[class-name]}/>
+    - You can add dynamic styles like this:
+        - <Component className={`${styles["form-control"]} ${!isValid && styles.invalid}`}/>
+    - Media Queries work as normal (Try to make queries for bigger screens not smaller ones)
 //////////////////// Section 1 ////////////////////////
 
 
