@@ -106,10 +106,17 @@ a. You can conditionally render content in a few ways
       {if(isValue && <OtherComponent/>)}
       {items.length === 0 ? <p>No Items</p> : <Component>{itemList}<Component/>}
     - Checking for content in your Js above your component, and returning early with a seperate component if a condition is not met.
-    
-//////////////////// Section 1 ////////////////////////
 
-
+//////////////////// Section 6 ////////////////////////
+a. You can add dynamic styles on components with inline styles or Classes
+    - <Component style={{
+        backgroundColor: !isValid ? "red : "white",
+        borderColor: !isValid ? "red" : "blue"
+    }}/>
+    - <Component className={`form-control ${isValid ? 'invalid' : ""}`} />
+b. You can also use the "styled-components" npm package. 
+    - import styled from "styled-components"
+    - const Button = styled.whateverelement`stylesgohere`
 
 //////////////////// Section 1 ////////////////////////
 
