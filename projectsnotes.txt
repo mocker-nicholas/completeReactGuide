@@ -131,8 +131,12 @@ d. CSS Modules
 e. Your custom elements dont know what className or other built in attributes are. 
     - if you want to pass a class from a custom component down to is children, you do so
         by accessing that className prop from the parent on the children.
-//////////////////// Section 1 ////////////////////////
-
+//////////////////// Section 8 ////////////////////////
+1. When you create a custom component like a button, rather than adding the onClick on the 
+    JSX <button></button> within the component, you can add it on the parent custom made <Button></Button> as props.
+    This allows you to have custom buttons, but pass in different handlers, types, etc
+    based on where you are using them. You simplly set the <button> attributes to be prop values
+    in your custom <Button></Button> component.
 
 
 
