@@ -107,7 +107,7 @@ a. You can conditionally render content in a few ways
       {items.length === 0 ? <p>No Items</p> : <Component>{itemList}<Component/>}
     - Checking for content in your Js above your component, and returning early with a seperate component if a condition is not met.
 
-//////////////////// Section 6 ////////////////////////
+//////////////////// Section 6 Styles ////////////////////////
 a. You can add dynamic styles on components with inline styles or Classes
     - <Component style={{
         backgroundColor: !isValid ? "red : "white",
@@ -128,6 +128,9 @@ d. CSS Modules
     - You can add dynamic styles like this:
         - <Component className={`${styles["form-control"]} ${!isValid && styles.invalid}`}/>
     - Media Queries work as normal (Try to make queries for bigger screens not smaller ones)
+e. Your custom elements dont know what className or other built in attributes are. 
+    - if you want to pass a class from a custom component down to is children, you do so
+        by accessing that className prop from the parent on the children.
 //////////////////// Section 1 ////////////////////////
 
 
