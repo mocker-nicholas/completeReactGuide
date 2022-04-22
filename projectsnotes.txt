@@ -163,6 +163,15 @@ e. Your custom elements dont know what className or other built in attributes ar
 4. To use a portal
     - create an element in index.html with the id you want to render the component in
     - call ReactDom.createPortal(<Component/>, document.getElementId("someid"));
+5. "refs"
+    - You can set a connection to an HTML element and other js code
+    - const thing = useRef(), and then setting ref={thing} on an element connects them
+        - the value of "thing" is the actual element itslef at first
+        - you can access an elements value with: element.current.value
+        - this can eliminate the need to use state to keep track of values in some cases.
+6. When you access a compenets value but you arent using react to determine that value 
+    like with state or something similar, these are called uncontrolled components. 
+    - most often this happens with input components. 
 
 
 //////////////////// Section 1 ////////////////////////
@@ -172,3 +181,8 @@ e. Your custom elements dont know what className or other built in attributes ar
 
 Project:
 1. I want a side-drawer nested nav
+
+- useState()
+- useRef()
+- React.Fragment
+- ReactDom.createPortal()
