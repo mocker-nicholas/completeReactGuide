@@ -134,7 +134,8 @@ d. CSS Modules
 e. Your custom elements dont know what className or other built in attributes are. 
     - if you want to pass a class from a custom component down to is children, you do so
         by accessing that className prop from the parent on the children.
-//////////////////// Section 8 ////////////////////////
+
+//////////////////// Section 8 addusers project////////////////////////
 1. When you create a custom component like a button, rather than adding the onClick on the 
     JSX <button></button> within the component, you can add it on the parent custom made <Button></Button> as props.
     This allows you to have custom buttons, but pass in different handlers, types, etc
@@ -143,12 +144,31 @@ e. Your custom elements dont know what className or other built in attributes ar
 
 
 
+//////////////////// Section 9 Fragments Portals and Refs ////////////////////////
+1. JSX code can only return one "root" html element. Two elements cannot be returned side
+    by side. 
+    - This makes sense, because in JS you cant return more than one thing either.
+    - To work around this, you can wrap everything in one element.
+    - You can also make what you return an array of elements. However if you do this, react wants a key on 
+        each element, just like it does when you dynamically render lists of data as elements.  
+2. The ideal solution to the above is to use a wrapper component.
+    - The wrapper component can just return props.children, or, any elements nested inside
+        the wrapper.
+    - SUPRISE! This is actually already built for you as <React.Fragment></React.Fragment>
+        - some projects can support <></> as <React.Fragment></React.Fragment>
+    - We can now avoid using a bunch of uneccessary div.
+3. Portals. Because modals are overlays for the entire page, you dont want them nested
+    inside a bunch of elements.
+    - We can use portals to render HTML outside of the component we are rendering.
+4. To use a portal
+    - create an element in index.html with the id you want to render the component in
+    - call ReactDom.createPortal(<Component/>, document.getElementId("someid"));
+
+
 //////////////////// Section 1 ////////////////////////
 
 
-
 //////////////////// Section 1 ////////////////////////
 
-
-//////////////////// Section 1 ////////////////////////
-
+Project:
+1. I want a side-drawer nested nav
