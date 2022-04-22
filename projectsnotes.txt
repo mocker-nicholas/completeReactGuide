@@ -1,8 +1,8 @@
-//////////////////// Section 1 ////////////////////////
+//////////////////// Section 1 Getting Started////////////////////////
 a. React is all about single page applications. 
 b. 
 
-//////////////////// Section 2 ////////////////////////
+//////////////////// Section 2 JS refresher ////////////////////////
 a. Arrow functions take the invocation context outside of the equation when using "this"
 b. Classes dont need the super() in the constructor like they used to 
     - class Human {
@@ -26,7 +26,7 @@ d. Destructuring
 
 e. Array functions
     - filter, map, find, findIndex, reduce, concat, slice, splice, 
-//////////////////// Section 3 ////////////////////////
+//////////////////// Section 3 React Basics ////////////////////////
 a. react is written in a declarative way. We state the end goal for what stuff should
     look like, and react works it out. 
 b. vanilla Js is written in an imperative way. We give step by step instructions for how 
@@ -45,7 +45,7 @@ e. props are passed down to JSX components from their parent. These look like at
         <Component prop1={afunctionorvalue}></Component>
       </ParentComponent>
 
-//////////////////// Section 4 ////////////////////////
+//////////////////// Section 4 React State and Events ////////////////////////
 a. Listening to events is built into React components. Each component can have "onEvent" attributes added to them
     - <Component onClick={someFunctionHandler} />
 b. React relies heavily on "state". A component wont re-render unless some "state" is changed.
@@ -60,7 +60,7 @@ f. Lifting information up through components works like event bubbling in JS.
     - Repeat this all the way up the chain
     - this is called "lifting the state"
 
-//////////////////// Section 5 ////////////////////////
+//////////////////// Section 5 Rendering Lists and Conditional Content ////////////////////////
 a. You can conditionally render content in a few ways
     - Using {} to add expressions directly in your JSX code
         i. 
@@ -106,7 +106,10 @@ a. You can conditionally render content in a few ways
       {if(isValue && <OtherComponent/>)}
       {items.length === 0 ? <p>No Items</p> : <Component>{itemList}<Component/>}
     - Checking for content in your Js above your component, and returning early with a seperate component if a condition is not met.
-
+    - whenever you are making a list, make sure your objects have an id. That Id needs to be placed as a "key"
+        attribute on your JSX element when you render the content so react can intuitively re-render that content
+            if it is updated
+            
 //////////////////// Section 6 Styles ////////////////////////
 a. You can add dynamic styles on components with inline styles or Classes
     - <Component style={{
