@@ -174,7 +174,15 @@ e. Your custom elements dont know what className or other built in attributes ar
     - most often this happens with input components. 
 
 
-//////////////////// Section 1 ////////////////////////
+//////////////////// Section 10 useEffect, useReducer, and the context API ////////////////////////
+1. useEffect is for "side-effects", or anything that is not rendering a ui or reacting to user input.
+2. useEffect takes in two arguments:
+    a. Callback function
+    b. array of dependencies, the callback only runs if the dependencies change
+3. Generally, the depencies are what you are using in your side effect function
+4. Remember, useEffect can be used for anything that is a sideeffect of something else happening within
+    a component.
+5. 
 
 
 //////////////////// Section 1 ////////////////////////
@@ -186,3 +194,4 @@ Project:
 - useRef()
 - React.Fragment
 - ReactDom.createPortal()
+- useEffect()
