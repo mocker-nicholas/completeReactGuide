@@ -179,10 +179,18 @@ e. Your custom elements dont know what className or other built in attributes ar
 2. useEffect takes in two arguments:
     a. Callback function
     b. array of dependencies, the callback only runs if the dependencies change
+       - without the second argument, it runs everytime the state updates
+       - with an empty array as the second argument, the effect only runs once on mount
 3. Generally, the depencies are what you are using in your side effect function
 4. Remember, useEffect can be used for anything that is a sideeffect of something else happening within
     a component.
-5. 
+5. Sometimes you need to "cleanup" after re-render. For example, if you add an eventlistener
+    in useEffect, you dont want to add an eventListener EVERY time a depency changes.
+6. You can "return" a function in useEffect to clean up the results from the last time it reason
+    - if you added an even listener, and the same thing happens again, your returned
+        function that gets rid of the eventlister will run first. This avoids 50 event
+        listeners being added to the same thing.
+
 
 
 //////////////////// Section 1 ////////////////////////
