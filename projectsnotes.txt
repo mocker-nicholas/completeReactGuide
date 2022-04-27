@@ -191,6 +191,14 @@ e. Your custom elements dont know what className or other built in attributes ar
         function that gets rid of the eventlister will run first. This avoids 50 event
         listeners being added to the same thing.
 
+1. useReducer is a more complex version of useState()
+2. It is good to use when you have state updates that belong together, or you have
+    state updates that depend on other state updates.
+3. const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
+    - reducerFn(prevState, action)
+    - initialState - the initial state that was set
+    - initFn - function to set the initial state programmatically (Like an http req)
+
 
 
 //////////////////// Section 1 ////////////////////////
@@ -203,3 +211,5 @@ Project:
 - React.Fragment
 - ReactDom.createPortal()
 - useEffect()
+- debounce something
+- useReducer();
