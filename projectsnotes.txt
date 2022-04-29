@@ -195,12 +195,37 @@ e. Your custom elements dont know what className or other built in attributes ar
 2. It is good to use when you have state updates that belong together, or you have
     state updates that depend on other state updates.
 3. const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
-    - reducerFn(prevState, action)
+    - reducerFn(prevState, action) <- action is the entire object you pass into your dispatch function
     - initialState - the initial state that was set
     - initFn - function to set the initial state programmatically (Like an http req)
+4. All use reducer really does is allow you to turn state into an object rather
+    than a value. 
+    - you then pass another object as an action
+    - you then return your new state. You can access the old state and the new action object
+        in the process. 
+    If you use useEffect with useReducer, make sure you depencies dont lead
+    to uneccessary effect execution. 
 
+1. Create a context object file within your source folder
+2. React.createContext({yourcontextkeyvalues})
+3. You then have to import and wrap any component that will need access to this context
+4. <AuthContext.Provider> wrapping gives all component children the context
+5. For components who want to use the provider, you can wrap them in a consumer
+5. <AuthContext.Consumer> has a child that is a function. 
+ - The function takes in the context as an argument, and should return your JSX that
+    needs to use the context.
+ - You can now access the context properties. ctx.property
 
+1. Most of the time we will use the useContext hook. 
+2. const ctx = useContext(AuthContext) <--- Still need to import your context
+3. in your context provider, you can also pass down functions. 
+4. Remember, you only do this when you are forwarding value/functions through components. 
+    - If you are going to to use the value/function in a direct child, go ahead and use props Still
 
+1. When you pass functions, you dont have to declare them on the context instantiation object
+    itself. You can throw the key in, and put a dummy function in its place. You can 
+    then make the function in a component, and pass it into the Context.Provider.
+2. 
 //////////////////// Section 1 ////////////////////////
 
 Project:
