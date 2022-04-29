@@ -224,8 +224,27 @@ e. Your custom elements dont know what className or other built in attributes ar
 
 1. When you pass functions, you dont have to declare them on the context instantiation object
     itself. You can throw the key in, and put a dummy function in its place. You can 
-    then make the function in a component, and pass it into the Context.Provider.
-2. 
+    then make the function in a component, and pass it into the Context.Provider as a value.
+
+1. React Context is not optimized for high frequency changes. 
+2. The Rules of React Hooks
+    - You can only call hooks in react functions. Compenent functions, and custom hooks.
+    - You can only call hooks at the top level of your react function
+        - Dont call them in nested functions
+        - dont call them in block statements
+3. useEffect(), everything used in useEffect needs to be added as a dependency.
+
+1. useImperativeHandle
+ -  Custom components cannot use refs.
+ -  useImperativeHandle takes in , and a function that returns an object. This
+    object has key value pairs that can make functions accessible to custom compenents.
+ - You will have to pass a ref on your custom compenent, and pass that to the
+    useImperativeHandle(ref, function that returns object)
+ - If you want to do this on a custom component, you need to wrap it in
+   React.forwardRef
+ - now you have a ref on your reusuable component and can access the functions
+    you returned in useImperativeHandle.
+
 //////////////////// Section 1 ////////////////////////
 
 Project:
@@ -238,3 +257,17 @@ Project:
 - useEffect()
 - debounce something
 - useReducer();
+    - destructered variables from the state
+- useContext(); - Custom context component
+- useImperativeHandle();
+- useForwardRef();
+
+1. Make a compenent tree and get an idea of what components need to be resuable.
+2. Decide where you will need to use context to avoid passing state through muliple compenents
+3. 
+
+Jobs
+- Create a Job with a description and date. 
+- Mark job as new, in progress on complete.
+- send an invoice to the client for that Job.
+- client should be able to make a payment.
