@@ -271,3 +271,8 @@ Jobs
 - Mark job as new, in progress on complete.
 - send an invoice to the client for that Job.
 - client should be able to make a payment.
+
+Trans
+- Use portal for trans detail
+- use context for display state
+- use reduce for search form
