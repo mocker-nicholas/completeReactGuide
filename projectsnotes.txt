@@ -245,7 +245,10 @@ e. Your custom elements dont know what className or other built in attributes ar
  - now you have a ref on your reusuable component and can access the functions
     you returned in useImperativeHandle.
 
-//////////////////// Section 1 ////////////////////////
+//////////////////// Section 12 How React Works ////////////////////////
+ - Just because a comonent re-renders, does mean the dom re-renders. React on re-renders a targeted dom element. 
+
+
 
 Project:
 1. I want a side-drawer nested nav
@@ -264,7 +267,12 @@ Project:
 
 1. Make a compenent tree and get an idea of what components need to be resuable.
 2. Decide where you will need to use context to avoid passing state through muliple compenents
-3. 
+
+1. Check to see if a sentance contains every letter in the alphabet.
+    - accepts a str - true if every letter A-z false if not.
+
+
+
 
 Jobs
 - Create a Job with a description and date. 
