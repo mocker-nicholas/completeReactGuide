@@ -247,6 +247,34 @@ e. Your custom elements dont know what className or other built in attributes ar
 
 //////////////////// Section 12 How React Works ////////////////////////
  - Just because a comonent re-renders, does mean the dom re-renders. React on re-renders a targeted dom element. 
+ - Wherever the state that is managed changes is where the re-render starts. Everything under the tree after that component will 
+    also re-render.
+
+1. You can use React.memo(Component) when you export your component.
+2. this tells react to look at the props the component recieves, and the component will only re-render if those 
+    props have changed. 
+    - this comparision has a performance cost as well, so only use it for complex components or if a component has many child components that dont change. 
+3. If you passing a function from a parent component to a child component, when the parent re-renders, that fuction is recreated
+    This technically means the child's props are different, because functions are objects, and objects a reference data types, 
+    and it will re-render even if wrapped in React.memo();
+4. However, you can prevent this function recreation with useCallback();
+    useCallback sets the object's reference equal to each other. This prevents this function from being recreated, because react
+    knows to just re-use that reference from the previous render. useCallback(() => myfunctionthingy).
+    - Just like useEffect, useCallback() takes in an array for a second param that tells react when to recreate the function. 
+    - Anything you use within your function should be included in the depencies array.
+
+1. React "schedules" state changes until everything except the state changes are done, then it updates all the states
+    in the order you called them in and re-renders. 
+2. if you do change multiple states before a re-render react "batches" states. It will update all of the states at once in one continuous function. 
+3. You can memoize SPECIFIC peices of code with useMemo();
+    - Sorting for example is really intensive. If you wanted to re-render a components title or color, 
+        but not re-sort a list stored in the compent for example:
+    - useMemo(() => {
+        sorting function
+    }, [dependencies])
+
+
+
 
 
 
@@ -264,15 +292,12 @@ Project:
 - useContext(); - Custom context component
 - useImperativeHandle();
 - useForwardRef();
+- React.memo();
+- useCallback();
+- 
 
 1. Make a compenent tree and get an idea of what components need to be resuable.
 2. Decide where you will need to use context to avoid passing state through muliple compenents
-
-1. Check to see if a sentance contains every letter in the alphabet.
-    - accepts a str - true if every letter A-z false if not.
-
-
-
 
 Jobs
 - Create a Job with a description and date. 
