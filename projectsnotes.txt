@@ -273,6 +273,71 @@ e. Your custom elements dont know what className or other built in attributes ar
         sorting function
     }, [dependencies])
 
+/////////////////////////// Section 13 Class based components //////////////////////////
+1. class Product extends Component {
+    render() {
+        return <h2>A Product goes here</h2>
+    }
+}
+
+2. Use state by calling a constructor and initializing your default state:
+ - class Product extends Component {
+     constructor() {
+         super();
+         this.state = {price: 1}
+     }
+
+     clickHandler() {
+         this.setState((curState) => {
+             return {price: 2}
+         })
+     }
+
+     render(){
+         return (
+             <button onclick(this.clickHandler.bind(this))>Change Price</button>
+         )
+     }
+ }
+
+3. Rather than using useEffect, Component class has methods that will run based on where they are at in the lifecycle. 
+    - componentDidMount() - runs when the component renders - essentially useEffect(---, [])
+    - compontentDidUpdate() - when the component is updated - essentially useEffect(---, [depend1, depend2])
+    - componentWillUnmount() - called right before compnent leaves the dom - essentially the cleanup from useEffect(() => {return => {...}}, [])
+
+
+4. Context works the same way at the setup stage.
+ - Create a store and define and export your context with some defualt keys
+ - Then import your contect whereever you want to use it, and wrap the children in the constect provider, and pass in a value with your real data
+ - To USE that context in your children:
+    a. define static contextType = YourContext; (import it as well), can only use this once per class.
+    b. then, in that component you can use this.context.users.
+
+5. Error boundaries:
+    - You can only use class based components to make an error boundary.
+    - class ErrorBoundary extends Component {
+            constructor() {
+                super();
+                this.state = { hasError: false };
+            }
+
+            componentDidCatch(error) {
+                console.log(error);
+                this.setState({ hasError: true });
+            }
+
+            render() {
+                if (this.state.hasError) {
+                return <p>Something went wrong!</p>;
+                }
+                return this.props.children;
+            }
+        }
+    - what makes this an error boundary is the componentDidCatch() method. Any class component with that method
+        technically makes the component an error boundary.
+    - Wrap the error boundary component around the component that may throw the error. 
+    - Render your error if you have one, if not, just render the children
+
 
 
 
@@ -286,6 +351,8 @@ Project:
 - React.Fragment
 - ReactDom.createPortal()
 - useEffect()
+    - dependenicies
+    - cleanup
 - debounce something
 - useReducer();
     - destructered variables from the state
