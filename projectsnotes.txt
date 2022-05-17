@@ -338,8 +338,19 @@ e. Your custom elements dont know what className or other built in attributes ar
     - Wrap the error boundary component around the component that may throw the error. 
     - Render your error if you have one, if not, just render the children
 
-
-
+/////////////////////////// Section 14 HTTP Requests //////////////////////////
+1. You literally make a fetch request for API calls. Nothing special about it. 
+2. Use state to how if you are loading, if you dont get anything back, or what you get back.
+3. Wrap your requests in a try/catch block;
+4. Right after your request resolves, throw an error if based on the http status code, or
+    some other identifier. fetch doesnt consider http failures an error, so you have to throw
+        your own if you are using fetch. 
+5. if you are making a call right when a page loads, like this:
+    -   useEffect(() => {
+        fetchMoviesHandler();
+        }, [fetchMoviesHandler]);
+    - You need to wrap your fetchMoviesHandler in useCallback. Because it is a function that will get recreated
+        on every render if you dont memoize it. This would cause an infite loop in your useEffect
 
 
 
