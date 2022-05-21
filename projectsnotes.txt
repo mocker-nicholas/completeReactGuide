@@ -354,6 +354,8 @@ e. Your custom elements dont know what className or other built in attributes ar
 
 ////////////////////////////////// Custom Hooks ///////////////////////////////////////////
 1. The point of custom hooks is to avoid code duplication. If you will be reusing a function through many components, make a custom hook!
+    a. Normally you just make a function in a library or util folder, but what if you want that reusable function to use some state?
+    b. 
 2. Custom hooks are stored in their own file, and must start with "use" useCustomHook = () => {}
 3. Just like any other function, your custom hooks can take in an argument. 
 
@@ -376,7 +378,7 @@ Project:
 - useForwardRef();
 - React.memo();
 - useCallback();
-- 
+- useCustomHook() - use this for a custom http request hook that is sort of generic
 
 1. Make a compenent tree and get an idea of what components need to be resuable.
 2. Decide where you will need to use context to avoid passing state through muliple compenents
