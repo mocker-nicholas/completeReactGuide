@@ -352,6 +352,10 @@ e. Your custom elements dont know what className or other built in attributes ar
     - You need to wrap your fetchMoviesHandler in useCallback. Because it is a function that will get recreated
         on every render if you dont memoize it. This would cause an infite loop in your useEffect
 
+////////////////////////////////// Custom Hooks ///////////////////////////////////////////
+1. The point of custom hooks is to avoid code duplication. If you will be reusing a function through many components, make a custom hook!
+2. Custom hooks are stored in their own file, and must start with "use" useCustomHook = () => {}
+3. Just like any other function, your custom hooks can take in an argument. 
 
 
 Project:
