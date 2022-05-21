@@ -358,7 +358,16 @@ e. Your custom elements dont know what className or other built in attributes ar
     b. 
 2. Custom hooks are stored in their own file, and must start with "use" useCustomHook = () => {}
 3. Just like any other function, your custom hooks can take in an argument. 
+    - Really watch the depencies here. You may end up having to wrap a ton of stuff in useCallback();
 
+/////////////////////////////////// 16 forms //////////////////////////////////////
+1. Choose what is best for you. Giving feedback on blur, keystroke, or submission.
+2. Max uses refs. Dont use refs. They are uncontrolled. 
+3. Validation on the front end is only useful for the user experience. It is not security!
+4. It is helpful to have some pre-defined classes you can add if an input is invalid. Set a classname to a variable
+    and set the variable value based on the valid states. 
+5. You are going to want to manage some "touched" state for inputs. You cant really judge something as valid or invalid if
+    the end user has not touched that input yet. 
 
 Project:
 1. I want a side-drawer nested nav
