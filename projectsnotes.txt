@@ -368,6 +368,10 @@ e. Your custom elements dont know what className or other built in attributes ar
     and set the variable value based on the valid states. 
 5. You are going to want to manage some "touched" state for inputs. You cant really judge something as valid or invalid if
     the end user has not touched that input yet. 
+6. Falidating a form input is another great useCase for a custom hook. Rather than a reducer, pass a value and validator into a custom hook.
+7. You can define your states in the hook, and have funcitons that update those states in the hook, then you can use those functions on your inputs,
+    - The hook will update the states and then rerender.
+8. 
 
 Project:
 1. I want a side-drawer nested nav
