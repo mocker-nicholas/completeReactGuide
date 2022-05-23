@@ -371,7 +371,12 @@ e. Your custom elements dont know what className or other built in attributes ar
 6. Falidating a form input is another great useCase for a custom hook. Rather than a reducer, pass a value and validator into a custom hook.
 7. You can define your states in the hook, and have funcitons that update those states in the hook, then you can use those functions on your inputs,
     - The hook will update the states and then rerender.
-8. 
+
+/////////////////////////////// 17 Adding Http to Food order app ////////////////////////////////////
+1. With Http there are always going to be some things you want to walk through:
+    - Getting data on load
+    - A Loading state
+    - An Error State
 
 Project:
 1. I want a side-drawer nested nav
