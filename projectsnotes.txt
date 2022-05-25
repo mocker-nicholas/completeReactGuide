@@ -378,6 +378,50 @@ e. Your custom elements dont know what className or other built in attributes ar
     - A Loading state
     - An Error State
 
+/////////////////////////////////// 18 Redux! /////////////////////////////////////////////
+1. Redux is a third party library. It is geared towards helping us manage app wide state:
+    - Local State
+    - Cross component
+    - App wide state
+2. Redux gives some advantages compared to the context API (though you can use both in the same app)
+    - context is sort of complicated to set up and manage
+    - Having multiple contexts is also complicated, it leads to a lot of nested providers. 
+    - Managing one giant context is also a pain. 
+    - Context is not a performant as Redux, React acknowledges that context is not made for data that frequently updates. 
+3. Redux gives you one store for all of your app wide or cross component state. 
+    - Compenents "subscribe" to the store, and are notified when data they use changes
+    - Components NEVER manipulate the store. At least not directly. 
+    - There is a reducer function that is responsible for mutating the store data. (not the same as useReducer)
+    - Components trigger "actions" which are objects that tell the reducer what to do. The reducer then spits out a new state.
+    - When the state changes the subscribing components update their UI to match the new state. 
+
+4. Setting up redux:
+    a. npm i redux - also install react-redux (redux is not react specific, so this makes it simplier to work redux into a react app)
+    b. import redux
+    c. create a store
+        - const store = redux.createStore(counterReducer);
+    d. create reducer (is called when action is passed, accepts old state, and action that was dispatched, always returns a new state)
+        - const counterReducer = (state = {defaultValuesForState}, action) => {
+            if(action.type === "something") {
+                // do this stuff
+                return {
+                    updatedStateObject
+                }
+            }
+            return state;
+        }
+    e. pass that reducer into the store you created
+    f. Create a subcription to that store
+        - const counterSubscriber = () => {
+            const latestState = store.getState;
+            return latestState;
+        }
+
+        store.subscribe(counterSubscriber)
+    g. Now dispatch an action to trigger the reducer and a state update.
+        - store.dispatch({type: "WHATEVER_ACTION", {actionObject}})
+
+
 Project:
 1. I want a side-drawer nested nav
 
@@ -397,6 +441,8 @@ Project:
 - React.memo();
 - useCallback();
 - useCustomHook() - use this for a custom http request hook that is sort of generic
+- redux for app wide and cross component state
+- 
 
 1. Make a compenent tree and get an idea of what components need to be resuable.
 2. Decide where you will need to use context to avoid passing state through muliple compenents
