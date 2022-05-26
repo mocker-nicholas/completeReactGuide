@@ -421,6 +421,11 @@ e. Your custom elements dont know what className or other built in attributes ar
     g. Now dispatch an action to trigger the reducer and a state update.
         - store.dispatch({type: "WHATEVER_ACTION", {actionObject}})
 
+5. Redux is really used with react-redux and react/toolkit. These give you a few perks:
+    - Provider component
+    - useSelector() - to select a peice of state you want to use from your current redux reducer state. 
+    - useDispatch() - gives you a function for your redux store (you can just name it dispatch)
+
 
 Project:
 1. I want a side-drawer nested nav
@@ -441,8 +446,10 @@ Project:
 - React.memo();
 - useCallback();
 - useCustomHook() - use this for a custom http request hook that is sort of generic
+
 - redux for app wide and cross component state
-- 
+- useSelector();
+- useDispatch();
 
 1. Make a compenent tree and get an idea of what components need to be resuable.
 2. Decide where you will need to use context to avoid passing state through muliple compenents
