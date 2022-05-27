@@ -425,7 +425,12 @@ e. Your custom elements dont know what className or other built in attributes ar
     - Provider component
     - useSelector() - to select a peice of state you want to use from your current redux reducer state. 
     - useDispatch() - gives you a function for your redux store (you can just name it dispatch)
-
+6. Redux's reducer returns a peice of state. The state is an object and objects are reference values. Meaning
+    it is easy to just change it, rather than return an entirely new object, but mutating it is a mistake. 
+    - every action should return a new state object!!!!! (but for all that is holy use the spread operator lol)
+7. if you are using createSlice from react toolkit, your methods can mutate state.
+    - createSlice makes sure to return an immutible object in the backround. 
+    - Slices must have a key named "initialState", this cannot be any name you want. 
 
 Project:
 1. I want a side-drawer nested nav
@@ -450,6 +455,10 @@ Project:
 - redux for app wide and cross component state
 - useSelector();
 - useDispatch();
+
+- redux toolkit
+- configureStore()
+- createSlice()
 
 1. Make a compenent tree and get an idea of what components need to be resuable.
 2. Decide where you will need to use context to avoid passing state through muliple compenents
