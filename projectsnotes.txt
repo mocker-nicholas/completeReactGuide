@@ -432,8 +432,33 @@ e. Your custom elements dont know what className or other built in attributes ar
     - createSlice makes sure to return an immutible object in the backround. 
     - Slices must have a key named "initialState", this cannot be any name you want. 
 
+/////////////////////////////////// 19 Advanced Redux! /////////////////////////////////////////////
+1. All reducer functions must be sideEffect free and syncronous (they should be in the component, or we can write an action creator function)
+2. Action Creators are available for us to run async code with redux. Or we could ignore redux and run this code in the component.
+    - This gives you a choice, fat reducers, fat components, or fat actions. 
+    - If you do your updating logic in the component, and store the finished state, you have a fat component
+        - If your code is syncronous, use reducers for your data transformation code. 
+        - If your code is async, do your data transformation in the component or an action. 
+3. useEffect with redux.
+    - If you want your backend to update with your frontend, set a useEffect to trigger when that peice of state changes. You can do this wherever with use selector!
+4. Action Creators
+    - you actually already use action creators already when you call a reducer method react-toolkit. 
+    - You can create your own action creator called a "THunk"
+    - A Thunk is a function delays an action until something else is finished then returns the function it was delaying.
+    - Action creator functions will return a function that is async, in the function that is returned, you dispatch again to update state if need to. 
+    - because this async code is happening in the action creator, rather than the dispatched reducers, this is okay. 
+    - So you are dispatching something that is async, that will then dispatch your syncronous reducers, based on what happens in the async
+        function you initially dispatched
+    - Really what the do, is enable you to move the logic out of your component into your slices files.
+
 Project:
 1. I want a side-drawer nested nav
+2. Deciding what logic you want on the backend and what you want on the front end is important with redux. 
+    - Reducers have to be syncronous. So if you are storing something like a cart, and displaying it on the front end, 
+        you have to determine if you want to compile all your items into the cart on the front end, or if you want to add
+        and remove items from the cart on the backend, and then retrieve the cart from your backend. Basically, is your cart's source
+        of truth what is stored in the state, or is what is in the state determined by what is on your backend. 
+3. 
 
 - useState()
 - useRef()
@@ -453,7 +478,7 @@ Project:
 - useCustomHook() - use this for a custom http request hook that is sort of generic
 
 - redux for app wide and cross component state
-- useSelector();
+- useSelector(); <- sets up the component subcription to redux!!!
 - useDispatch();
 
 - redux toolkit
