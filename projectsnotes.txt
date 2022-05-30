@@ -460,7 +460,20 @@ e. Your custom elements dont know what className or other built in attributes ar
 3. For links, get the <Link> component from react-router-dom rather than using a tags. This prevents the browser from
     actually sending a request and refreshing the page when you go to a route. 
     - NavLink is a special version of <Link> the lets you add an active class property for styling purposes.
-4. 
+3. Use switch and exact to make nested urls (your urls sort of work like a file structure. Think "REST")
+    - By default, react will render all routes that are "matching". if you have route /nick/is and /nick/is/cool, both content will render on /nick/is/cool
+    - The switch component can be wrapped around your route components to make sure only one is active at a time. However, just like express, it will
+        render the route that "matches" first.
+    - The exact prop can be added to /nick/is, to make sure it doesnt render when /nick/is/cool is hit
+4. Nested routes "path" prop must match the route they are nested inside. If you have a /tom route, nested in /nick/is, it will never show up. 
+5. To add a fallback page for 404:
+    - Add a route inside of your switch that captures all other paths:
+    -   <Route path="*">
+            <NotFound />
+        </Route>
+6. useHistory() - get history and .push or .replace to go to a new page
+7. 
+
 
 Project:
 1. I want a side-drawer nested nav
@@ -469,14 +482,6 @@ Project:
         you have to determine if you want to compile all your items into the cart on the front end, or if you want to add
         and remove items from the cart on the backend, and then retrieve the cart from your backend. Basically, is your cart's source
         of truth what is stored in the state, or is what is in the state determined by what is on your backend. 
-3. Use switch and exact to make nested urls (your urls sort of work like a file structure. Think "REST")
-    - By default, react will render all routes that are "matching". if you have route /nick/is and /nick/is/cool, both content will render on /nick/is/cool
-    - The switch component can be wrapped around your route components to make sure only one is active at a time. However, just like express, it will
-        render the route that "matches" first.
-    - The exact prop can be added to /nick/is, to make sure it doesnt render when /nick/is/cool is hit
-4. Nested routes "path" prop must match the route they are nested inside. If you have a /tom route, nested in /nick/is, it will never show up. 
-5.
-
 
 - useState()
 - useRef()
@@ -505,6 +510,13 @@ Project:
 
 - react-router-dom
 - useParams()
+- useHistory() - get history and .push or .replace to go to a new page
+- <Switch>
+- <Route>
+- <BrowserRouter>
+- <Link>
+- <NavLink>
+- <Prompt>
 
 1. Make a compenent tree and get an idea of what components need to be resuable.
 2. Decide where you will need to use context to avoid passing state through muliple compenents
