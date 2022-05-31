@@ -472,7 +472,8 @@ e. Your custom elements dont know what className or other built in attributes ar
             <NotFound />
         </Route>
 6. useHistory() - get history and .push or .replace to go to a new page
-7. 
+7. Query Params:
+    - 
 
 
 Project:
@@ -517,6 +518,7 @@ Project:
 - <Link>
 - <NavLink>
 - <Prompt>
+- useLocation() - gives access to current location
 
 1. Make a compenent tree and get an idea of what components need to be resuable.
 2. Decide where you will need to use context to avoid passing state through muliple compenents
